@@ -12,6 +12,4 @@ resource "aws_instance" "this" {
       Name = var.name
     }
   )
-
-  user_data = var.user_data
 }
