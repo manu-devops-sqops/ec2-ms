@@ -1,15 +1,9 @@
-resource "aws_instance" "this" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
-  subnet_id              = var.subnet_id
-  vpc_security_group_ids = var.security_group_ids
-  key_name               = var.key_name
-  associate_public_ip_address = var.associate_public_ip
-
-  tags = merge(
-    var.tags,
-    {
-      Name = var.name
-    }
-  )
+module "my_ec2_instance" {
+  source            = "./ec2-module"
+  ami_id            = "ami-02521d90e7410d9f0"
+  instance_type     = "t2.micro"
+  subnet_id         = "subnet-12345678"
+  security_group_id = "sg-12345678"
+  key_name          = "my-key"
+  instance_name     = "demo-instance"
 }
