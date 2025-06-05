@@ -36,12 +36,6 @@ variable "associate_public_ip" {
   default     = false
 }
 
-variable "user_data" {
-  description = "User data script"
-  type        = string
-  default     = ""
-}
-
 variable "tags" {
   description = "Additional tags"
   type        = map(string)
